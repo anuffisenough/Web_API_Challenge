@@ -1,16 +1,19 @@
-*,
+/**,
 *::before,
 *::after {
   box-sizing: border-box;
+}*/
+button {
+  background-color: rgb(90, 5, 90);
+  color: white;
 }
-
-html,
+/*html,
 body,
-.wrapper {
+{
   height: 100%;
   margin: 0;
   padding: 0;
-}
+}*/
 
 nav {
   margin: 20px;
@@ -21,49 +24,56 @@ nav {
   float: left;
 }
 
-#timer {
+#time-left {
   float: right;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
 }
 
-.wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+.quiz-container {
+  padding: 100px 100px 100px 100px;
 }
 
 header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  margin-bottom: 0;
+  color: black;
 }
 
-.card {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
-  border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+div {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.question-container {
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
 }
 
-.card-header::after {
+#questions {
+  font-size: 15px;
+}
+
+#answers {
+
+}
+
+/*.card-header::after {
   content: " ";
   display: block;
   width: 100%;
   background: #e7e9eb;
   height: 2px;
-}
+}*/
 
-.card-body {
+/*.card-body {
   min-height: 100px;
 }
 
@@ -83,27 +93,24 @@ header {
   content: " ";
   display: block;
   clear: both;
-}
+}*/
 
 .btn {
-  border: none;
-  background-color: hsl(360, 91%, 36%);
+ /* background-color: purple;
+  background-color: rgb(62, 3, 62);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
+  /*margin: 16px 16px 16px 20px;
+  /*padding: 14px 34px;
   text-align: center;
-  cursor: pointer;
+  cursor: pointer;*/
 }
-
+/*
 button[disabled] {
   cursor: default;
-  background: #c0c7cf;
+  background: purple;
 }
 
 .float-right {
@@ -129,7 +136,7 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
-}
+}*/
 
 @media (max-width: 690px) {
   .btn {
