@@ -47,8 +47,8 @@ header {
 }
 
 div {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: auto;
+  width: 700px;
 }
 .question-container {
   font-size: 18px;
