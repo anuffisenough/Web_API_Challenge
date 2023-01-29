@@ -46,7 +46,6 @@ function correctAnswer1() {
 
 function incorrectAnswer2() {
     event.stopPropagation();
-    validationSpan.remove();
     timeLeft -= 15;
     question3();
     validationSpan.textContent = "Wrong!";
@@ -55,11 +54,10 @@ function incorrectAnswer2() {
 
 function correctAnswer2() {
     event.stopPropagation();
-    validationSpan.remove();
     score += 100;
     question3();
     validationSpan.textContent = "Correct!";
-    quizDiv.appendChild(validationSpan);    
+    answersDiv.appendChild(validationSpan);    
 };
 
 function incorrectAnswer3() {
@@ -264,6 +262,7 @@ function finalScore() {
         answerOption3.remove();
         answerOption4.remove();
         
+        timeLeft = 0;
         timeCounter.textContent = "";
         questionsDiv.setAttribute("style", "font-size: 18px;");
         questionsDiv.textContent = "Your final Score is: " + score;
@@ -274,7 +273,6 @@ startButton.addEventListener("click", function() {
     setTime();
     question1();
 })
-
 
 //creates and displays the decrementing 75 seconds once use clicks "Start Quiz"
 function setTime() {

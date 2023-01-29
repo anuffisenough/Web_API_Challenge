@@ -37,15 +37,19 @@ nav {
 span {
   border-top: 1px solid black;
   display: block;
+  font-style: italic;
 }
 
 #high-scores {
   border: none;
   float: left;
+  font-style: normal;
 }
 
 #time-left {
+  border: none;
   float: right;
+  font-style: normal;
 }
 
 a {
