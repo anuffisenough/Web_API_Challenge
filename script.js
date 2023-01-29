@@ -12,6 +12,7 @@ var quizDiv = document.getElementsByTagName("div");
 var answersUl = document.createElement("ul");
 var createAnswerLi = document.createElement("li");
 var validationSpan = document.createElement("span");
+var initialsInput = document.createElement("input");
 
 var startButton = document.createElement("button");
 var answerOption1 = document.createElement("button");
@@ -38,7 +39,7 @@ function incorrectAnswer1() {
 
 function correctAnswer1() {
     event.stopPropagation();
-    score += 100;
+  //  score += 100;
     question2();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);   
@@ -54,7 +55,7 @@ function incorrectAnswer2() {
 
 function correctAnswer2() {
     event.stopPropagation();
-    score += 100;
+ //   score += 100;
     question3();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);    
@@ -72,7 +73,7 @@ function incorrectAnswer3() {
 function correctAnswer3() {
     event.stopPropagation();
     validationSpan.remove();
-    score += 100;
+ //   score += 100;
     question4();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);    
@@ -90,7 +91,7 @@ function incorrectAnswer4() {
 function correctAnswer4() {
     event.stopPropagation();
     validationSpan.remove();
-    score += 100;
+//    score += 100;
     question5();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
@@ -108,7 +109,7 @@ function incorrectAnswer5() {
 function correctAnswer5() {
     event.stopPropagation();
     validationSpan.remove();
-    score += 100;
+ //   score += 100;
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
     finalScore();
@@ -261,11 +262,17 @@ function finalScore() {
         answerOption2.remove();
         answerOption3.remove();
         answerOption4.remove();
-        
-        timeLeft = 0;
-        timeCounter.textContent = "";
+
+        timeLeft;
+        timeCounter.textContent = "Time: " + timeLeft;
+
+        score = timeLeft;
         questionsDiv.setAttribute("style", "font-size: 18px;");
         questionsDiv.textContent = "Your final Score is: " + score;
+
+        timeCounter.remove();
+
+        questionsDiv.appendChild(initialsInput);
 };
 
 //add function to add event listener to "answers section", where all clickable buttons will be contained. Click will clear the div, start/display timer. and render next set of content
@@ -281,7 +288,7 @@ function setTime() {
         timeCounter.textContent = "Time: " + timeLeft;
 
         if(timeLeft <= 0) {
-            timeCounter.textContent = "";
+      //      timeCounter.textContent = "";
             clearInterval(timerInterval);
             finalScore();
         }
