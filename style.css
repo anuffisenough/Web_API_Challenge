@@ -34,7 +34,13 @@ nav {
   justify-content: space-between;
 }
 
+span {
+  border-top: 1px solid black;
+  display: block;
+}
+
 #high-scores {
+  border: none;
   float: left;
 }
 

@@ -7,9 +7,11 @@ var questionsDiv = document.getElementById("questions");
 var answersDiv = document.getElementById("answers");
 var answersUl = document.getElementsByTagName("ul");
 var answerLi = document.getElementsByTagName("li");
+var quizDiv = document.getElementsByTagName("div");
 
 var answersUl = document.createElement("ul");
 var createAnswerLi = document.createElement("li");
+var validationSpan = document.createElement("span");
 
 var startButton = document.createElement("button");
 var answerOption1 = document.createElement("button");
@@ -29,70 +31,88 @@ function initializeQuiz() {
 function incorrectAnswer1() {
     event.stopPropagation();
     timeLeft -= 15;
-    console.log("Incorrect!");
     question2();
+    validationSpan.textContent = "Wrong!";
+    answersDiv.appendChild(validationSpan);    
 };
 
 function correctAnswer1() {
     event.stopPropagation();
     score += 100;
-    console.log("Correct!");
     question2();
+    validationSpan.textContent = "Correct!";
+    answersDiv.appendChild(validationSpan);   
 };
 
 function incorrectAnswer2() {
     event.stopPropagation();
+    validationSpan.remove();
     timeLeft -= 15;
-    console.log("Incorrect!");
     question3();
+    validationSpan.textContent = "Wrong!";
+    answersDiv.appendChild(validationSpan);
 };
 
 function correctAnswer2() {
     event.stopPropagation();
+    validationSpan.remove();
     score += 100;
-    console.log("Correct!");
     question3();
+    validationSpan.textContent = "Correct!";
+    quizDiv.appendChild(validationSpan);    
 };
 
 function incorrectAnswer3() {
     event.stopPropagation();
+    validationSpan.remove();
     timeLeft -= 15;
-    console.log("Incorrect!");
     question4();
+    validationSpan.textContent = "Wrong!";
+    answersDiv.appendChild(validationSpan);    
 };
 
 function correctAnswer3() {
     event.stopPropagation();
+    validationSpan.remove();
     score += 100;
-    console.log("Correct!");
     question4();
+    validationSpan.textContent = "Correct!";
+    answersDiv.appendChild(validationSpan);    
 };
 
 function incorrectAnswer4() {
     event.stopPropagation();
+    validationSpan.remove();
     timeLeft -= 15;
-    console.log("Incorrect!");
     question5();
+    validationSpan.textContent = "Wrong!";
+    answersDiv.appendChild(validationSpan);    
 };
 
 function correctAnswer4() {
     event.stopPropagation();
+    validationSpan.remove();
     score += 100;
-    console.log("Correct!");
     question5();
+    validationSpan.textContent = "Correct!";
+    answersDiv.appendChild(validationSpan);
 };
 
 function incorrectAnswer5() {
     event.stopPropagation();
+    validationSpan.remove();
     timeLeft -= 15;
-    console.log("Incorrect!");
+    validationSpan.textContent = "Wrong!";
+    answersDiv.appendChild(validationSpan);
     finalScore();
 };
 
 function correctAnswer5() {
     event.stopPropagation();
+    validationSpan.remove();
     score += 100;
-    console.log("Correct!");
+    validationSpan.textContent = "Correct!";
+    answersDiv.appendChild(validationSpan);
     finalScore();
 };
 
