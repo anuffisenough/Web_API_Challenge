@@ -8,6 +8,7 @@ button {
   color: white;
   border: none;
   border-radius: 3px;
+  margin: 5px;
 }
 
 button:hover {
@@ -66,8 +67,14 @@ div {
 #questions {
   font-size: 15px;
 }
+ul {
+  list-style: none;
+}
+
 
 #answers {
+  padding: 5px;
+  margin: 5px;
 
 }
 
