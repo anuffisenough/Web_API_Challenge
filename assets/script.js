@@ -1,4 +1,5 @@
 var timeLeft = 76;
+var score = 0;
 
 var timeCounter = document.getElementById("time-left");
 var quizH1 = document.getElementById("quiz-intro");
@@ -6,7 +7,6 @@ var questionsDiv = document.getElementById("questions");
 var answersDiv = document.getElementById("answers");
 var answersUl = document.getElementsByTagName("ul");
 var answerLi = document.getElementsByTagName("li");
-
 
 var answersUl = document.createElement("ul");
 var createAnswerLi = document.createElement("li");
@@ -26,9 +26,79 @@ function initializeQuiz() {
     answersDiv.appendChild(startButton);
 };
 
+function incorrectAnswer1() {
+    event.stopPropagation();
+    timeLeft -= 15;
+    console.log("Incorrect!");
+    question2();
+};
+
+function correctAnswer1() {
+    event.stopPropagation();
+    score += 100;
+    console.log("Correct!");
+    question2();
+};
+
+function incorrectAnswer2() {
+    event.stopPropagation();
+    timeLeft -= 15;
+    console.log("Incorrect!");
+    question3();
+};
+
+function correctAnswer2() {
+    event.stopPropagation();
+    score += 100;
+    console.log("Correct!");
+    question3();
+};
+
+function incorrectAnswer3() {
+    event.stopPropagation();
+    timeLeft -= 15;
+    console.log("Incorrect!");
+    question4();
+};
+
+function correctAnswer3() {
+    event.stopPropagation();
+    score += 100;
+    console.log("Correct!");
+    question4();
+};
+
+function incorrectAnswer4() {
+    event.stopPropagation();
+    timeLeft -= 15;
+    console.log("Incorrect!");
+    question5();
+};
+
+function correctAnswer4() {
+    event.stopPropagation();
+    score += 100;
+    console.log("Correct!");
+    question5();
+};
+
+function incorrectAnswer5() {
+    event.stopPropagation();
+    timeLeft -= 15;
+    console.log("Incorrect!");
+    finalScore();
+};
+
+function correctAnswer5() {
+    event.stopPropagation();
+    score += 100;
+    console.log("Correct!");
+    finalScore();
+};
+
 function question1() {
     //Clears the intro heading, removes the start button, adjusts the styling of the question section
-        quizH1.remove();
+        quizH1.textContent = "";
         startButton.remove();  
         questionsDiv.setAttribute("style", "font-size: 20px; font-weight: bold");
 
@@ -43,12 +113,25 @@ function question1() {
         answerOption4.textContent = "D. Only";
         answersDiv.appendChild(answerOption4);
 
-        answerOption3.addEventListener("click", function() {
-            question2();
-        })
-    };
+    //Sets event listener for buttons to determine correct/incorrect answers, time deduction and score increase
+        answerOption1.addEventListener("click", incorrectAnswer1);
+
+        answerOption2.addEventListener("click", incorrectAnswer1);
+
+        answerOption3.addEventListener("click", correctAnswer1);
+
+        answerOption4.addEventListener("click", incorrectAnswer1);
+};
 
 function question2() {
+        answerOption1.removeEventListener("click", incorrectAnswer1);
+
+        answerOption2.removeEventListener("click", incorrectAnswer1);
+
+        answerOption3.removeEventListener("click", correctAnswer1);
+
+        answerOption4.removeEventListener("click", incorrectAnswer1);
+
         questionsDiv.textContent = "'Template literal' notation typically DOES NOT use which of the following characters?";
         answerOption1.textContent = "A. *";
         answersDiv.appendChild(answerOption1);
@@ -59,13 +142,25 @@ function question2() {
         answerOption4.textContent = "D. {}";
         answersDiv.appendChild(answerOption4);
 
-        answerOption1.addEventListener("click", function() {
-            question3();
-        })
+        answerOption1.addEventListener("click", correctAnswer2);
+
+        answerOption2.addEventListener("click", incorrectAnswer2);
+
+        answerOption3.addEventListener("click", incorrectAnswer2);
+
+        answerOption4.addEventListener("click", incorrectAnswer2);
 
 };
 
 function question3() {
+        answerOption1.removeEventListener("click", correctAnswer2);
+
+        answerOption2.removeEventListener("click", incorrectAnswer2);
+
+        answerOption3.removeEventListener("click", incorrectAnswer2);
+
+        answerOption4.removeEventListener("click", incorrectAnswer2);
+
         questionsDiv.textContent = "Events propogating outward from children elements to parents is referred to as ___________.";
         answerOption1.textContent = "A. Hoisting";
         answersDiv.appendChild(answerOption1);
@@ -76,12 +171,24 @@ function question3() {
         answerOption4.textContent = "D. Bubbling";
         answersDiv.appendChild(answerOption4);
 
-        answerOption4.addEventListener("click", function() {
-            question4();
-    })
+        answerOption1.addEventListener("click", incorrectAnswer3);
+
+        answerOption2.addEventListener("click", incorrectAnswer3);
+
+        answerOption3.addEventListener("click", incorrectAnswer3);
+
+        answerOption4.addEventListener("click", correctAnswer3);
 };
 
 function question4() {
+        answerOption1.removeEventListener("click", incorrectAnswer3);
+
+        answerOption2.removeEventListener("click", incorrectAnswer3);
+
+        answerOption3.removeEventListener("click", incorrectAnswer3);
+
+        answerOption4.removeEventListener("click", correctAnswer3);
+
         questionsDiv.textContent = "Which js operator indicates that two things are 'equal in type and value'?";
         answerOption1.textContent = "A. =";
         answersDiv.appendChild(answerOption1);
@@ -92,12 +199,24 @@ function question4() {
         answerOption4.textContent = "D. ==";
         answersDiv.appendChild(answerOption4);
 
-        answerOption2.addEventListener("click", function() {
-            question5();
-})
+        answerOption1.addEventListener("click", incorrectAnswer4);
+
+        answerOption2.addEventListener("click", correctAnswer4);
+
+        answerOption3.addEventListener("click", incorrectAnswer4);
+
+        answerOption4.addEventListener("click", incorrectAnswer4);
 };
 
 function question5() {
+        answerOption1.removeEventListener("click", incorrectAnswer4);
+
+        answerOption2.removeEventListener("click", correctAnswer4);
+
+        answerOption3.removeEventListener("click", incorrectAnswer4);
+
+        answerOption4.removeEventListener("click", incorrectAnswer4);
+
         questionsDiv.textContent = "Which code block executes a saved function?";
         answerOption1.textContent = "A. (Pretty Please)";
         answersDiv.appendChild(answerOption1);
@@ -108,10 +227,27 @@ function question5() {
         answerOption4.textContent = "D. &&";
         answersDiv.appendChild(answerOption4);
 
-        answerOption2.addEventListener("click", function() {
-            question5();
-})
-}
+        answerOption1.addEventListener("click", incorrectAnswer5);
+
+        answerOption2.addEventListener("click", correctAnswer5);
+
+        answerOption3.addEventListener("click", incorrectAnswer5);
+
+        answerOption4.addEventListener("click", incorrectAnswer5); 
+};
+
+function finalScore() {
+        quizH1.setAttribute("style", "font-size: 20px; font-weight: bold; text-align: left; padding: 0px");
+        quizH1.textContent = "All Done!";
+        answerOption1.remove();
+        answerOption2.remove();
+        answerOption3.remove();
+        answerOption4.remove();
+        
+        timeCounter.textContent = "";
+        questionsDiv.setAttribute("style", "font-size: 18px;");
+        questionsDiv.textContent = "Your final Score is: " + score;
+};
 
 //add function to add event listener to "answers section", where all clickable buttons will be contained. Click will clear the div, start/display timer. and render next set of content
 startButton.addEventListener("click", function() {
@@ -126,9 +262,10 @@ function setTime() {
         timeLeft--;
         timeCounter.textContent = "Time: " + timeLeft;
 
-        if(timeLeft === 0) {
+        if(timeLeft <= 0) {
+            timeCounter.textContent = "";
             clearInterval(timerInterval);
-            console.log("Time's up!");
+            finalScore();
         }
 
     }, 1000);
