@@ -12,6 +12,8 @@ var quizDiv = document.getElementsByTagName("div");
 var answersUl = document.createElement("ul");
 var createAnswerLi = document.createElement("li");
 var validationSpan = document.createElement("span");
+var initialsDiv = document.createElement("div");
+var initialsInputSpan =document.createElement("span");
 var initialsInput = document.createElement("input");
 
 var startButton = document.createElement("button");
@@ -19,6 +21,7 @@ var answerOption1 = document.createElement("button");
 var answerOption2 = document.createElement("button");
 var answerOption3 = document.createElement("button");
 var answerOption4 = document.createElement("button");
+var submitButton = document.createElement("button");
 
 //renders HighScores link, quiz section, heading, description of the quiz, and clickable "Start Quiz" button.
 function initializeQuiz() {
@@ -266,14 +269,34 @@ function finalScore() {
         timeLeft;
         timeCounter.textContent = "Time: " + timeLeft;
 
-        score = timeLeft;
+        if (timeLeft >= 0) {
+            score = timeLeft;
+        } else {
+            score = 0;
+        };
+
         questionsDiv.setAttribute("style", "font-size: 18px;");
         questionsDiv.textContent = "Your final Score is: " + score;
-
         timeCounter.remove();
+        questionsDiv.appendChild(initialsDiv);
+        initialsInputSpan.setAttribute("style", "border: none; display: inline; font-style: normal;");
+        initialsInputSpan.textContent = "Enter Initials: "
+        initialsDiv.appendChild(initialsInputSpan);
+        initialsDiv.appendChild(initialsInput);
+        submitButton.textContent = "Submit";
+        initialsDiv.appendChild(submitButton);
 
-        questionsDiv.appendChild(initialsInput);
+        submitButton.addEventListener("click", function() {
+            var initials = initialsInput.value;
+            localStorage.setItem("initials", initials);
+        });
+
 };
+
+function renderHighScores() {
+        
+
+}
 
 //add function to add event listener to "answers section", where all clickable buttons will be contained. Click will clear the div, start/display timer. and render next set of content
 startButton.addEventListener("click", function() {
