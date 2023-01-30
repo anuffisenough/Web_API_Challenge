@@ -18,11 +18,11 @@
 
 ## Usage
 
-https://anuffisenough.github.io/Challenge_Module_3/
+https://anuffisenough.github.io/Web_API_Challenge/
 
 ### Screenshot
 
-![Screenshot of Web API Challenge] 
+![Screenshot of Web API Challenge](Challenge_4_Screenshot.png)
 
 ### Credits
 
