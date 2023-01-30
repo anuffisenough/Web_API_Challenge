@@ -1,5 +1,6 @@
 var timeLeft = 76;
 var score = 0;
+var answerValidationTimer = 1;
 
 var timeCounter = document.getElementById("time-left");
 var quizH1 = document.getElementById("quiz-intro");
@@ -32,12 +33,25 @@ function initializeQuiz() {
     answersDiv.appendChild(startButton);
 };
 
+function validationTimeOut() {
+    var validationInterval = setInterval(function() {
+        answerValidationTimer--;
+
+        if(answerValidationTimer === 0) {
+            clearInterval(validationInterval);
+            validationSpan.remove();
+        }
+    }, 1000)
+};
+
 function incorrectAnswer1() {
     event.stopPropagation();
     timeLeft -= 15;
     question2();
     validationSpan.textContent = "Wrong!";
-    answersDiv.appendChild(validationSpan);    
+    answersDiv.appendChild(validationSpan); 
+    answerValidationTimer = 1;
+    validationTimeOut();   
 };
 
 function correctAnswer1() {
@@ -45,7 +59,9 @@ function correctAnswer1() {
   //  score += 100;
     question2();
     validationSpan.textContent = "Correct!";
-    answersDiv.appendChild(validationSpan);   
+    answersDiv.appendChild(validationSpan);
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function incorrectAnswer2() {
@@ -54,14 +70,17 @@ function incorrectAnswer2() {
     question3();
     validationSpan.textContent = "Wrong!";
     answersDiv.appendChild(validationSpan);
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function correctAnswer2() {
     event.stopPropagation();
- //   score += 100;
     question3();
     validationSpan.textContent = "Correct!";
-    answersDiv.appendChild(validationSpan);    
+    answersDiv.appendChild(validationSpan); 
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function incorrectAnswer3() {
@@ -70,16 +89,19 @@ function incorrectAnswer3() {
     timeLeft -= 15;
     question4();
     validationSpan.textContent = "Wrong!";
-    answersDiv.appendChild(validationSpan);    
+    answersDiv.appendChild(validationSpan); 
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function correctAnswer3() {
     event.stopPropagation();
     validationSpan.remove();
- //   score += 100;
     question4();
     validationSpan.textContent = "Correct!";
-    answersDiv.appendChild(validationSpan);    
+    answersDiv.appendChild(validationSpan);
+    answerValidationTimer = 1;   
+    validationTimeOut();
 };
 
 function incorrectAnswer4() {
@@ -88,16 +110,19 @@ function incorrectAnswer4() {
     timeLeft -= 15;
     question5();
     validationSpan.textContent = "Wrong!";
-    answersDiv.appendChild(validationSpan);    
+    answersDiv.appendChild(validationSpan);
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function correctAnswer4() {
     event.stopPropagation();
     validationSpan.remove();
-//    score += 100;
     question5();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function incorrectAnswer5() {
@@ -107,15 +132,18 @@ function incorrectAnswer5() {
     validationSpan.textContent = "Wrong!";
     answersDiv.appendChild(validationSpan);
     finalScore();
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function correctAnswer5() {
     event.stopPropagation();
     validationSpan.remove();
- //   score += 100;
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
     finalScore();
+    answerValidationTimer = 1;
+    validationTimeOut();
 };
 
 function question1() {
