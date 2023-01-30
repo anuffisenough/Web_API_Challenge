@@ -1,30 +1,32 @@
-# Challenge_Module_3
+# Web_API_Challenge_Module_4
 
 ## Description
 
--This project aimed to add functionality to a password generating webpage.
+-This project created an interactive, timed quiz covering JavaScript fundamentals.
 
--Using the provided starter code, prompts were added to request input from the user in order to determine password length and character type(s).
+-Upon launch, text is updated in several existing HTML elements, introducing the quiz and providing some basic instructions. A "Start Button" is created and added dynamically, with an event listener added to proceed with the questions upon "click".
 
--Each input was stored as a variable to be called upon later in determining the appropriate function(s) to generate an acceptable password.
+-When the quiz is started, 75 seconds are added to the timer, which begins to count down each second. For every new question presented, a set of possible answer buttons are generated and added dynamically, with event listeners that will register the answer and proceed to the next question upon click.
 
--User input is validated, and a specific function is called to create a password that meets the desired criteria (unfinished).
+-Incorrect answers will subtract 15 seconds from the running timer. A temporary validation will also appear to let the User know if they were correct or incorrect as they move the next question. 
 
--The final password is generated, and will appear in the text area of the "Your Secure Password" box (unfinished).
+-When all questions have been answered, or the timer reaches 0, the User will be presented with an "All Done" message and their final score will be tallied. A text input box and "Submit" button are created and added, with instructions for the User to enter their initials.
+
+-Upon click of the "Submit" button, the initials are saved locally with the final score, and rendered to a saved list of "High Scores," which can also be accessed by clicking the "High Scores" link at the top of the screen at any point.
+
+-A "Go Back" button is created and added, which will allow the User to start the quiz over again if they wish.
 
 ## Usage
 
 https://anuffisenough.github.io/Challenge_Module_3/
 
-### Screenshot (Need to update)
+### Screenshot
 
-![screenshot of module 3 challenge](Assets/images/Screenshot.png)
+![Screenshot of Web API Challenge] 
 
-## Credits (Need to update)
+### Credits
 
-![Mdn web docs tutorial on Window Prompts] https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
-
-![Mdn web docs tutorial on Commands] https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm
+![MDN Web Docs] https://developer.mozilla.org/en-US/docs/
 
 
 

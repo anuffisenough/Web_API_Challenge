@@ -28,7 +28,7 @@ var submitButton = document.createElement("button");
 function initializeQuiz() {
     timeCounter.textContent = "Time: " + "0";
     quizH1.textContent = "Coding Quiz Challenge";
-    questionsDiv.textContent = "Let's take a quick quiz to test your knowledge of basic JavaScript fundamentals. You'll have 75 seconds to answer 5 questions. Each correct answer will earn you points, each wrong answer will reduce timer by 15 seconds. Good luck!";
+    questionsDiv.textContent = "Let's take a quick quiz to test your knowledge of basic JavaScript fundamentals. You'll have 75 seconds to answer 5 questions. Each incorrect answer will reduce your timer by 15 seconds. Your score will be determined by the time remaining after the final question is answered. Good luck!";
     startButton.textContent = "Start Quiz";
     answersDiv.appendChild(startButton);
 };
@@ -299,8 +299,6 @@ function finalScore() {
 
         if (timeLeft >= 0) {
             score = timeLeft;
-        } else {
-            score = 0;
         };
 
         questionsDiv.setAttribute("style", "font-size: 18px;");
