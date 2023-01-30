@@ -344,7 +344,7 @@ function setTime() {
         timeCounter.textContent = "Time: " + timeLeft;
 
         if(timeLeft <= 0) {
-      //      timeCounter.textContent = "";
+            timeCounter.textContent = "";
             clearInterval(timerInterval);
             finalScore();
         }
