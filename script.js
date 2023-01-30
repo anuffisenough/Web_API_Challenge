@@ -1,6 +1,6 @@
 var timeLeft = 76;
 var score = 0;
-var answerValidationTimer = 1;
+var answerValidationTimer = 2;
 
 var timeCounter = document.getElementById("time-left");
 var quizH1 = document.getElementById("quiz-intro");
@@ -50,7 +50,7 @@ function incorrectAnswer1() {
     question2();
     validationSpan.textContent = "Wrong!";
     answersDiv.appendChild(validationSpan); 
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();   
 };
 
@@ -60,7 +60,7 @@ function correctAnswer1() {
     question2();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -70,7 +70,7 @@ function incorrectAnswer2() {
     question3();
     validationSpan.textContent = "Wrong!";
     answersDiv.appendChild(validationSpan);
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -79,7 +79,7 @@ function correctAnswer2() {
     question3();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan); 
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -90,7 +90,7 @@ function incorrectAnswer3() {
     question4();
     validationSpan.textContent = "Wrong!";
     answersDiv.appendChild(validationSpan); 
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -100,7 +100,7 @@ function correctAnswer3() {
     question4();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
-    answerValidationTimer = 1;   
+    answerValidationTimer = 2;   
     validationTimeOut();
 };
 
@@ -111,7 +111,7 @@ function incorrectAnswer4() {
     question5();
     validationSpan.textContent = "Wrong!";
     answersDiv.appendChild(validationSpan);
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -121,7 +121,7 @@ function correctAnswer4() {
     question5();
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -132,7 +132,7 @@ function incorrectAnswer5() {
     validationSpan.textContent = "Wrong!";
     answersDiv.appendChild(validationSpan);
     finalScore();
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -142,7 +142,7 @@ function correctAnswer5() {
     validationSpan.textContent = "Correct!";
     answersDiv.appendChild(validationSpan);
     finalScore();
-    answerValidationTimer = 1;
+    answerValidationTimer = 2;
     validationTimeOut();
 };
 
@@ -312,14 +312,21 @@ function finalScore() {
         initialsDiv.appendChild(initialsInputSpan);
         initialsDiv.appendChild(initialsInput);
         submitButton.textContent = "Submit";
+        submitButton.setAttribute("style", "display: inline");
         initialsDiv.appendChild(submitButton);
 
-        submitButton.addEventListener("click", function() {
-            var initials = initialsInput.value;
-            localStorage.setItem("initials", initials);
-        });
+        submitButton.addEventListener("click", saveScore());
 
 };
+
+function saveScore() {
+    var savedScore = {
+        initials: initialsInput.value,
+        finalScore: score,
+    };
+
+    localStorage.setItem("savedscore", JSON.stringify(savedScore));
+}
 
 function renderHighScores() {
         
